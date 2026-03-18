@@ -96,9 +96,8 @@ nvm use --lts
 # -------------------------------------------------
 
 echo "Install other packages..."
-brew install readline nmap curl
-brew install heroku docker flutter bchunk android-platform-tools scrcpy wine-stable winetricks 
-brew install --cask iterm2 
+brew install readline nmap curl bchunk android-platform-tools scrcpy wine-stable winetricks flutter
+brew install --cask iterm2
 
 # -------------------------------------------------
 # Configure Git
@@ -131,6 +130,9 @@ mkdir -p ~/_data/code/project/
 # -------------------------------------------------
 # Add aliases
 # -------------------------------------------------
+
+PROFILE="$HOME/.bash_profile"
+touch "$PROFILE"
 
 echo "Adding terminal aliases..."
 cat << 'EOF' >> "$PROFILE"
