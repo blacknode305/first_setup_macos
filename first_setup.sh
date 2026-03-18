@@ -92,23 +92,41 @@ nvm install --lts
 nvm use --lts
 
 # -------------------------------------------------
+# Install other packages
+# -------------------------------------------------
+
+echo "Install other packages..."
+brew install readline nmap curl
+brew install heroku docker flutter bchunk android-platform-tools scrcpy wine-stable winetricks 
+brew install --cask iterm2 
+
+# -------------------------------------------------
 # Configure Git
 # -------------------------------------------------
 
-echo "Configuring Git..."
-read -p "Enter Git username: " GIT_NAME
-read -p "Enter Git email: " GIT_EMAIL
+#echo "Configuring Git..."
+#read -p "Enter Git username: " GIT_NAME
+#read -p "Enter Git email: " GIT_EMAIL
 
-git config --global user.name "$GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
-git config --global init.defaultBranch main
+#git config --global user.name "$GIT_NAME"
+#git config --global user.email "$GIT_EMAIL"
+#git config --global init.defaultBranch main
+
+# Save credentials in macOS Keychain
+#git config --global credential.helper osxkeychain
+
+#echo "Git configured. If you want, set up GPG for signed commits separately."
 
 # -------------------------------------------------
 # Create _data directory
 # -------------------------------------------------
 
 echo "Creating _data directory..."
-mkdir -p ~/ _data
+mkdir -p ~/_data/code/project/
+
+# todo: клонировать сюда репозиторий с шаблоном для новых проектов, который будет включать проект airdrop,
+# с помощью которого будет происходит загрузка программ с телефона по локальному вай-фай,
+# затем распаковка архива и установка программ на компьютер, для моей версии macOS.
 
 # -------------------------------------------------
 # Add aliases
@@ -120,6 +138,7 @@ alias ll='ls -la'
 alias gs='git status'
 alias gp='git pull'
 alias gc='git commit'
+alias gp='git push'
 alias ..='cd ..'
 alias update='brew update && brew upgrade'
 EOF
@@ -127,4 +146,6 @@ EOF
 # Reload profile
 . "$PROFILE"
 
-echo "Bootstrap completed successfully."
+echo "First setup completed successfully."
+
+
